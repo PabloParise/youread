@@ -1,10 +1,18 @@
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Popular from './pages/popular';
+import Navbar from "./components/navbar";
+import Home from "./pages/home";
 
 function App() {
   return (
-    <div className=''>
-      <h1>Youread</h1>
-    </div>
+    <Router>
+      
+      <Routes>
+        <Route exact path='/' element = {<Home />} />
+        <Route exact path='/popular' element = {<Popular />} />
+      </Routes>
+      <Navbar />
+    </Router>
   );
 }
 
