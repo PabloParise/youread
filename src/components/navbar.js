@@ -27,7 +27,7 @@ const NavBarIcon = ({ icon, text = 'tooltip' }) => {
     return (
         <div className="navbar-icon group">
             {icon}
-            <span class="navbar-tooltip group-hover:scale-100">
+            <span class="navbar-tooltip md:group-hover:scale-100">
                 {text}
             </span>
         </div>

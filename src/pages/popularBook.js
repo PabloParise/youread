@@ -44,7 +44,13 @@ const PopularBook = () => {
                                 </h3>
                             </div>
                             <p className="bg-slate-900 rounded-lg p-1 mt-2 lg:text-lg xl:text-xl">
-                                {'> '}{item.description}
+                                {(() => {
+                                if(item.description === "") {
+                                    return `${'> '}Description not available (but it's an amazing book!)`;
+                                } else {
+                                    return `${'> '}${item.description}`
+                                }
+                            })()}
                             </p> 
                             <div className="my-2 lg:text-lg xl:text-xl">
                                 <button className="flex items-center bg-green-400 

@@ -30,14 +30,22 @@ const Card = ({bookData, listsNum}) => {
                                         description, 
                                         price, 
                                         primary_isbn10,
+                                        primary_isbn13,
                                         publisher,
                                         title,
                                         rank,
                                     } = item;
                                     return (
-                                        <div key={primary_isbn10}>
+                                        <div key={rank}>
                                             <div className=" relative group" onClick={()=>{setShow(true); setItem(item)}}>
-                                                <Link to={`/popularbook/${primary_isbn10}`} state={{ item }}>
+                                                <Link to={(() => {
+                                                            if(item.primary_isbn10 !== "") {
+                                                                return `/popularbook/${primary_isbn10}`;
+                                                            } else {
+                                                                return `/popularbook/${primary_isbn13}`;
+                                                            }
+                                                        })()} 
+                                                state={{ item }}>
                                                     <img className="h-44 md:h-56 md:group-hover:brightness-110 
                                                     md:group-hover:cursor-pointer" 
                                                     src={book_image} alt='book cover'
