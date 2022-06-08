@@ -6,14 +6,19 @@ import useDarkMode from './hooks/useDarkMode';
 
 const NavBar = () => {
     return (
-        <div className="fixed bottom-0 h-12 w-full 
-                        flex flex-row justify-around 
+        <div className="fixed top-0 h-14 w-full px-4 
+                        flex flex-row justify-between items-center
+                        md:justify-around md:px-0
                         bg-slate-800 text-white shadow-lg">
             {/*<ThemeIcon />*/}
-            <Link to='/'><NavBarIcon icon={<FaHome size='26'/>} /></Link>
-            <Link to='/popular'><NavBarIcon icon={<FaFireAlt size='26'/>} /></Link>
-            <Link to='/'><NavBarIcon icon={<FaSearch size='26'/>} /></Link>
-            <NavBarIcon icon={<GoGear size='28'/>} />
+            <Link to='/'><img src="/images/navLogo.png" className="h-12"/></Link>
+            <div className="flex flex-row">
+            <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></Link>
+            <Link to='/popular' className="px-1 md:px-4"><NavBarIcon icon={<FaFireAlt size='20'/>} text={"Popular"} /></Link>
+            <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></Link>
+            <NavBarIcon icon={<GoGear size='22'/>} text={"Settings"} className="px-1 md:px-4"/>
+
+            </div>
         </div>
     );
 };

@@ -7,16 +7,20 @@ const Popular = () => {
     const bookData = useSelector((state) => state.bookData.value);
 
     return (
-        <main className="min-h-screen min-w-screen mb-12
+        <main className="min-h-screen min-w-screen pt-14
             bg-slate-900  text-white
               ">
-            <section className="flex flex-col items-center">
-            <h2 className="font-serif text-3xl py-1">NYT Best Sellers</h2>
-                    <article className="flex flex-col
-                                     bg-sky-900 py-1 rounded-lg
-                                       w-full">
-                        {<Card bookData={bookData} listsNum={bookData.length} />}
-                    </article>
+            <section className="flex flex-col pb-8">
+              <article className="w-5/6 mx-auto max-w-7xl">
+                <h2 className="font-serif text-3xl py-4 md:text-5xl">
+                  NYT Best Sellers
+                </h2>
+                <div className="flex flex-col 
+                              bg-slate-600
+                                rounded-lg">
+                    {<Card bookData={bookData} listsNum={bookData.length} />}
+                </div>
+              </article>
             </section>
     </main>
     );

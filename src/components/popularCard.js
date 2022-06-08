@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Modal from "./popularModal";
 
 const Card = ({bookData, listsNum}) => {
@@ -16,8 +17,10 @@ const Card = ({bookData, listsNum}) => {
                 } = list;
                 return (
                     <article className="flex flex-col" key={list_id}>
-                        <h2 className="mb-1 ml-1">{list_name}</h2>
-                        <div className="overflow-x-auto">
+                        <h2 className="p-2 md:text-lg lg:text-xl">{list_name}</h2>
+                        <div className="overflow-x-auto scrollbar 
+                                     scrollbar-thumb-green-400 
+                                     scrollbar-track-slate-900">
                             <div className="flex w-max mb-2" >
                                 {books.map((item) => {
                                     const {
@@ -32,17 +35,16 @@ const Card = ({bookData, listsNum}) => {
                                         rank,
                                     } = item;
                                     return (
-                                        <div key={rank}>
+                                        <div key={primary_isbn10}>
                                             <div className=" relative group" onClick={()=>{setShow(true); setItem(item)}}>
-                                                <img className="h-44" src={book_image} alt='book cover' />
-                                                {<div className="absolute top-0 scale-0 w-full h-full  
-                                                                group-hover:scale-100 group-hover:bg-black opacity-70">
-                                                    <h2>{title}</h2>
-                                                    <h3>{author}</h3>
-                                                    <button>COMPRAR</button>
-                                                </div>}
+                                                <Link to={`/popularbook/${primary_isbn10}`} state={{ item }}>
+                                                    <img className="h-44 md:h-56 md:group-hover:brightness-110 
+                                                    md:group-hover:cursor-pointer" 
+                                                    src={book_image} alt='book cover'
+                                                    />
+                                                </Link>
                                             </div>
-                                            <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/>
+                                           {/* <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/> */}
                                         </div>
                                     )
                                 })}
