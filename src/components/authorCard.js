@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const SearchCard = ({seaBookData}) => {
+const AuthorCard = ({authorBookData}) => {
 
     return (
         <>
@@ -9,7 +10,7 @@ const SearchCard = ({seaBookData}) => {
                                 scrollbar-thumb-green-400 
                                 scrollbar-track-slate-900">
                     <div className="flex w-max mb-2" >
-                        {seaBookData.map((item) => {
+                        {authorBookData.map((item) => {
                             let id = item.id;
                             let smallThumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                             let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail;
@@ -20,20 +21,13 @@ const SearchCard = ({seaBookData}) => {
                             if(thumbnail != undefined) {
                             return (
                                 <div className=" relative group" key={id}>
-                                    <img className="h-44 md:h-56 md:group-hover:brightness-110 
-                                        md:group-hover:cursor-pointer" 
-                                        src={smallThumbnail} alt='book cover'
+                                    
+                                    <Link to={`/authorbook/${id}`} state={{ item }}>
+                                        <img className="h-44 md:h-56 md:group-hover:brightness-110 
+                                                        md:group-hover:cursor-pointer" 
+                                            src={smallThumbnail} alt='book cover'
                                         />
-                                    {/*<Link to={(() => {
-                                                if(item.primary_isbn10 !== "") {
-                                                    return `/popularbook/${primary_isbn10}`;
-                                                } else {
-                                                    return `/popularbook/${primary_isbn13}`;
-                                                }
-                                            })()} 
-                                    state={{ item }}>
-                                        
-                                        </Link>*/}
+                                    </Link>
                                 </div>
                             )}
                         })}
@@ -44,4 +38,4 @@ const SearchCard = ({seaBookData}) => {
     );
 };
 
-export default SearchCard;
+export default AuthorCard;

@@ -13,7 +13,6 @@ const Popular = () => {
       const getPopularBooks = async () => {
           try {
               const res = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=Yo8fdejHwEeCW5w0v3AVwZ8Z4S55JWCI`)
-              console.log(res.data.results.lists);
               dispatch(setPopBookData(res.data.results.lists));
           } catch(error) {
               console.log(error);

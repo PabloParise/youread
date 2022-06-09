@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {setSeaBookData} from "../features/seaBookData";
+import {setAuthorBookData} from "../features/authorBookData";
 import { useLocation } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa";
-import SearchCard from "../components/searchCard";
+import AuthorCard from "../components/authorCard";
 
 const PopularBook = () => {
 
@@ -13,7 +13,7 @@ const PopularBook = () => {
 
     const [showLinks, setShowLinks] = useState(false);
 
-    const seaBookData = useSelector((state) => state.seaBookData.value);
+    const authorBookData = useSelector((state) => state.authorBookData.value);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,7 +21,6 @@ const PopularBook = () => {
             try {
                 const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=+inauthor:${item.author}&key=AIzaSyCcH8YnStIHfPmRNB4WBarph4i03ekNjX8&langRestrict=en&maxResults=15`)
                 if(res.data.totalItems =! 0) {
-                    console.log(res.data.items);
                     let dataArr = [];
                     let titlesArr = [];
                     res.data.items.map((elem) => {
@@ -30,10 +29,9 @@ const PopularBook = () => {
                             titlesArr.push(elem.volumeInfo.title)
                         } 
                     })
-                    console.log(dataArr)
-                    dispatch(setSeaBookData(dataArr))
+                    dispatch(setAuthorBookData(dataArr))
                 } else {
-                    dispatch(setSeaBookData([]))
+                    dispatch(setAuthorBookData([]))
                 }
             } catch(error) {
                 console.log(error);
@@ -74,7 +72,7 @@ const PopularBook = () => {
                                     by {item.author}
                                 </h3>
                             </div>
-                            <p className="bg-slate-900 rounded-lg p-1 mt-2 lg:text-lg xl:text-xl">
+                            <p className="bg-slate-900 rounded-lg p-1 mt-2 text-justify lg:text-lg xl:text-xl">
                                 {(() => {
                                 if(item.description === "") {
                                     return `${'> '}Description not available (but it's an amazing book!)`;
@@ -111,7 +109,7 @@ const PopularBook = () => {
                                      bg-slate-900 border-2 rounded-lg w-5/6 max-w-5xl">
                         <div className="w-full">
                             <h2 className="lg:text-lg xl:text-xl mb-2">More from {item.author}</h2>
-                            <SearchCard seaBookData={seaBookData} />
+                            <AuthorCard authorBookData={authorBookData} />
                         </div>
                     </article>
             </main>

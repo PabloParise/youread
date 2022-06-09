@@ -6,12 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import popBookDataReducer from './features/popBookData';
-import seaBookDataReducer from './features/seaBookData';
+import authorBookDataReducer from './features/authorBookData';
 
 const store = configureStore({
   reducer: {
     popBookData: popBookDataReducer,
-    seaBookData: seaBookDataReducer,
+    authorBookData: authorBookDataReducer,
   },
 });
 
