@@ -34,7 +34,6 @@ const PopularBook = () => {
                                 })()}
                             </p>
                             <img className="" src={item.book_image} alt='book cover'/>
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" className="twitter-share-button" data-size="large" data-text={`Has anyone read ${item.title} by ${item.author}?`}  data-show-count="false"><FaTwitter />Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </div>
                         <div className={`mt-2 sm:mt-0 sm:ml-2 lg:max-w-lg`}>
                             <div className="bg-slate-800 rounded-lg p-1">

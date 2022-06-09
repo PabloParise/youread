@@ -1,10 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {setBookData} from "../features/bookData";
 import Card from "../components/popularCard";
 
 const Popular = () => {
 
-    const bookData = useSelector((state) => state.bookData.value);
+  const bookData = useSelector((state) => state.bookData.value);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      const getPopularBooks = async () => {
+          try {
+              const res = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=Yo8fdejHwEeCW5w0v3AVwZ8Z4S55JWCI`)
+              console.log(res.data.results.lists);
+              dispatch(setBookData(res.data.results.lists));
+          } catch(error) {
+              console.log(error);
+          }
+      }
+      getPopularBooks()
+  },[]); 
 
     return (
         <main className="min-h-screen min-w-screen py-14
