@@ -26,6 +26,7 @@ const Card = ({bookData, listsNum}) => {
                                     const {
                                         author,
                                         book_image, 
+                                        book_image_width,
                                         buy_links, 
                                         description, 
                                         price, 
