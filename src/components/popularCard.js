@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import Modal from "./popularModal";
 
-const Card = ({bookData, listsNum}) => {
-
-    const [show, setShow] = useState(false);
-    const [bookItem, setItem] = useState();
+const Card = ({popBookData, listsNum}) => {
 
     return (
         <>
-            {bookData.slice(0, listsNum).map((list) => {
+            {popBookData.slice(0, listsNum).map((list) => {
                 const {
                     list_name,
                     list_id,
@@ -38,7 +34,7 @@ const Card = ({bookData, listsNum}) => {
                                     } = item;
                                     return (
                                         <div key={rank}>
-                                            <div className=" relative group" onClick={()=>{setShow(true); setItem(item)}}>
+                                            <div className=" relative group">
                                                 <Link to={(() => {
                                                             if(item.primary_isbn10 !== "") {
                                                                 return `/popularbook/${primary_isbn10}`;
@@ -53,7 +49,6 @@ const Card = ({bookData, listsNum}) => {
                                                     />
                                                 </Link>
                                             </div>
-                                           {/* <Modal show={show} item={bookItem} onClose={()=>setShow(false)}/> */}
                                         </div>
                                     )
                                 })}

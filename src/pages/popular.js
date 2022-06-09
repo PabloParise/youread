@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {setBookData} from "../features/bookData";
+import {setPopBookData} from "../features/popBookData";
 import Card from "../components/popularCard";
 
 const Popular = () => {
 
-  const bookData = useSelector((state) => state.bookData.value);
+  const popBookData = useSelector((state) => state.popBookData.value);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Popular = () => {
           try {
               const res = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=Yo8fdejHwEeCW5w0v3AVwZ8Z4S55JWCI`)
               console.log(res.data.results.lists);
-              dispatch(setBookData(res.data.results.lists));
+              dispatch(setPopBookData(res.data.results.lists));
           } catch(error) {
               console.log(error);
           }
@@ -34,7 +34,7 @@ const Popular = () => {
                 <article className="flex flex-col 
                               bg-slate-600
                                 rounded-lg">
-                    {<Card bookData={bookData} listsNum={bookData.length} />}
+                    {<Card popBookData={popBookData} listsNum={popBookData.length} />}
                 </article>
               </section>
     </main>

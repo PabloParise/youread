@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "../components/popularCard";
 import { useDispatch, useSelector } from "react-redux";
-import {setBookData} from "../features/bookData";
+import {setPopBookData} from "../features/popBookData";
 import { Link } from "react-router-dom";
 
 const Home = () => {
 
-    const bookData = useSelector((state) => state.bookData.value);
+    const popBookData = useSelector((state) => state.popBookData.value);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -15,7 +15,7 @@ const Home = () => {
             try {
                 const res = await axios.get(`https://api.nytimes.com/svc/books/v3/lists/full-overview.json?api-key=Yo8fdejHwEeCW5w0v3AVwZ8Z4S55JWCI`)
                 console.log(res.data.results.lists);
-                dispatch(setBookData(res.data.results.lists));
+                dispatch(setPopBookData(res.data.results.lists));
             } catch(error) {
                 console.log(error);
             }
@@ -36,7 +36,7 @@ const Home = () => {
                     <article className="w-5/6 md:w-11/12 mx-auto">
                         <p className="text-lg md:text-xl py-4">Either by checking out the NYT Best Sellers...</p>
                         <div className="flex flex-col bg-slate-600 rounded-lg">
-                            {<Card bookData={bookData} listsNum={2} />}
+                            {<Card popBookData={popBookData} listsNum={2} />}
                             <Link to='/popular' className="text-lg pl-1 text-center 
                                                         font-bold bg-slate-500 w-full
                                                         rounded-b-lg">

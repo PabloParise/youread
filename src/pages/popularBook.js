@@ -1,19 +1,49 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {setSeaBookData} from "../features/seaBookData";
 import { useLocation } from "react-router-dom";
-import { FaAngleDown, FaTwitter  } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
+import SearchCard from "../components/searchCard";
 
 const PopularBook = () => {
 
     const { state } = useLocation();
-
     const { item } = state || {};
-
-    console.log(item.book_image_width);
 
     const [showLinks, setShowLinks] = useState(false);
 
+    const seaBookData = useSelector((state) => state.seaBookData.value);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        const getAuthorBooks = async () => {
+            try {
+                const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=+inauthor:${item.author}&key=AIzaSyCcH8YnStIHfPmRNB4WBarph4i03ekNjX8&langRestrict=en&maxResults=15`)
+                if(res.data.totalItems =! 0) {
+                    console.log(res.data.items);
+                    let dataArr = [];
+                    let titlesArr = [];
+                    res.data.items.map((elem) => {
+                        if(titlesArr.includes(elem.volumeInfo.title) === false && elem.volumeInfo.title.toLowerCase() !== item.title.toLowerCase() && elem.volumeInfo.authors.includes(item.author)) {
+                            dataArr.push(elem);
+                            titlesArr.push(elem.volumeInfo.title)
+                        } 
+                    })
+                    console.log(dataArr)
+                    dispatch(setSeaBookData(dataArr))
+                } else {
+                    dispatch(setSeaBookData([]))
+                }
+            } catch(error) {
+                console.log(error);
+            }
+        }
+        getAuthorBooks()
+    },[]); 
+
     return (
-            <main className="flex justify-center 
+            <main className="flex flex-col items-center
                              min-h-screen min-w-screen
                            bg-slate-900  text-white
                              ">
@@ -75,6 +105,13 @@ const PopularBook = () => {
                                     })}
                                 </ul>
                             </div>
+                        </div>
+                    </article>
+                    <article className="flex justify-center mb-6 p-4 h-fit
+                                     bg-slate-900 border-2 rounded-lg w-5/6 max-w-5xl">
+                        <div className="w-full">
+                            <h2 className="lg:text-lg xl:text-xl mb-2">More from {item.author}</h2>
+                            <SearchCard seaBookData={seaBookData} />
                         </div>
                     </article>
             </main>
