@@ -5,6 +5,7 @@ import {setAuthorBookData} from "../features/authorBookData";
 import { useLocation } from "react-router-dom";
 import { FaAngleDown } from "react-icons/fa";
 import AuthorCard from "../components/authorCard";
+import PopularRev from "../components/popularRev";
 
 const PopularBook = () => {
 
@@ -19,12 +20,14 @@ const PopularBook = () => {
     useEffect(() => {
         const getAuthorBooks = async () => {
             try {
-                const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=+inauthor:${item.author}&key=AIzaSyCcH8YnStIHfPmRNB4WBarph4i03ekNjX8&langRestrict=en&maxResults=15`)
+                const res = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=+inauthor:${item.author}&key=AIzaSyCcH8YnStIHfPmRNB4WBarph4i03ekNjX8&langRestrict=en&maxResults=20`)
                 if(res.data.totalItems =! 0) {
                     let dataArr = [];
                     let titlesArr = [];
                     res.data.items.map((elem) => {
-                        if(titlesArr.includes(elem.volumeInfo.title) === false && elem.volumeInfo.title.toLowerCase() !== item.title.toLowerCase() && elem.volumeInfo.authors.includes(item.author)) {
+                        if(titlesArr.includes(elem.volumeInfo.title) === false 
+                        && elem.volumeInfo.title.toLowerCase() !== item.title.toLowerCase() 
+                        && elem.volumeInfo.authors.includes(item.author)) {
                             dataArr.push(elem);
                             titlesArr.push(elem.volumeInfo.title)
                         } 
@@ -103,6 +106,13 @@ const PopularBook = () => {
                                     })}
                                 </ul>
                             </div>
+                        </div>
+                    </article>
+                    <article className="flex justify-center mb-6 p-4 h-fit
+                                     bg-slate-900 border-2 rounded-lg w-5/6 max-w-5xl">
+                        <div className="w-full">
+                            <h2 className="lg:text-lg xl:text-xl mb-2">NYT book reviews for {item.title}</h2>
+                            <PopularRev revTitle = {item.title} />
                         </div>
                     </article>
                     <article className="flex justify-center mb-6 p-4 h-fit

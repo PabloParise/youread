@@ -24,12 +24,7 @@ const AuthorBook = () => {
     let pageCount = item.volumeInfo.pageCount;
     let category = item.volumeInfo.categories.join(", ");
     let rating = item.volumeInfo.averageRating;
-    let format = item.saleInfo.isEbook;
-    let price = item.saleInfo.listPrice["amount"];
-    let currency = item.saleInfo.listPrice["currencyCode"];
-    let buyLink = item.saleInfo.buyLink;
-
-    console.log(item);
+    let googleLink = item.volumeInfo.canonicalVolumeLink;    
 
     return (
             <main className="flex flex-col items-center
@@ -77,9 +72,7 @@ const AuthorBook = () => {
                                     <li>Publisher: {publisher}</li>
                                     <li>Category: {category}</li>
                                     <li>Pages: {pageCount}</li>
-                                    <li>Format: {format ? "Ebook" : "Book"}</li>
-                                    <li>Price: {currency} {price}</li>
-                                    <li><a href={buyLink} target="_blank" rel="noopener noreferrer" className="font-bold">Buying link</a></li>
+                                    <li>See more <a href={googleLink} target="_blank" rel="noopener noreferrer" className="font-bold">Here</a></li>
                                 </ul>
                             </div>
                         </div>
