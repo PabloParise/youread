@@ -121,7 +121,7 @@ const PopularBook = () => {
                             <h2 className="lg:text-lg xl:text-xl mb-2">More from {item.author}</h2>
                             {(() => {
                                     if(authorBookData.length === 0) {
-                                        return (<p className="text-sm lg:text-md text-center">It seems that there are none</p>);
+                                        return (<p className="text-sm lg:text-md font-light">It seems that there are none</p>);
                                     } else {
                                         return (
                                             <div><AuthorCard authorBookData={authorBookData} /></div>

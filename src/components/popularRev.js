@@ -43,7 +43,7 @@ const PopularRev = ({revTitle}) => {
                     )
                 } else {
                     return (
-                        <p className="font-light">Sadly, there are no reviews yet</p>
+                        <p className="text-sm lg:text-md font-light">Sadly, there are no reviews yet</p>
                     )
                 }
             })()}
