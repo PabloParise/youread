@@ -14,14 +14,9 @@ const AuthorCard = ({authorBookData}) => {
                             let id = item.id;
                             let smallThumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                             let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail;
-                            let title = item.volumeInfo.title;
-                            let author = item.volumeInfo.authors;
-                            let description = item.volumeInfo.description;
-                            {/*let category = item.volumeInfo.categories[0];*/}
                             if(thumbnail != undefined) {
                             return (
                                 <div className=" relative group" key={id}>
-                                    
                                     <Link to={`/authorbook/${id}`} state={{ item }}>
                                         <img className="h-44 md:h-56 md:group-hover:brightness-110 
                                                         md:group-hover:cursor-pointer" 

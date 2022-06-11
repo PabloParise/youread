@@ -74,12 +74,12 @@ const PopularBook = () => {
                             </div>
                             <p className="bg-slate-900 rounded-lg p-1 mt-2 text-justify lg:text-lg xl:text-xl">
                                 {(() => {
-                                if(item.description === "") {
-                                    return `${'> '}Description not available (but it's an amazing book!)`;
-                                } else {
-                                    return `${'> '}${item.description}`
-                                }
-                            })()}
+                                    if(item.description === "") {
+                                        return `${'> '}Description not available (but it's an amazing book!)`;
+                                    } else {
+                                        return `${'> '}${item.description}`
+                                    }
+                                })()}
                             </p> 
                             <div className="my-2 lg:text-lg xl:text-xl">
                                 <button className="flex items-center bg-green-400 
@@ -87,7 +87,7 @@ const PopularBook = () => {
                                                    onClick={() => {setShowLinks(!showLinks)}}>
                                     <p>Buy it!</p><FaAngleDown />
                                 </button>
-                                <ul className={`bg-slate-900 rounded-lg p-1 mt-1 ${showLinks ? 'block': 'hidden'}`}>
+                                <ul className={`bg-slate-800 rounded-lg p-1 mt-1 ${showLinks ? 'block': 'hidden'}`}>
                                     {item.buy_links.map((link, index) => {
                                         const {
                                             name,
@@ -109,7 +109,15 @@ const PopularBook = () => {
                                      bg-slate-900 border-2 rounded-lg w-5/6 max-w-5xl">
                         <div className="w-full">
                             <h2 className="lg:text-lg xl:text-xl mb-2">More from {item.author}</h2>
-                            <AuthorCard authorBookData={authorBookData} />
+                            {(() => {
+                                    if(authorBookData.length === 0) {
+                                        return (<p className="text-sm lg:text-md text-center">It seems that there are none</p>);
+                                    } else {
+                                        return (
+                                            <div><AuthorCard authorBookData={authorBookData} /></div>
+                                        )
+                                    }
+                            })()}
                         </div>
                     </article>
             </main>

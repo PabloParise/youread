@@ -20,7 +20,14 @@ const AuthorBook = () => {
     let title = item.volumeInfo.title;
     let author = item.volumeInfo.authors.join(", ");
     let description = item.volumeInfo.description;
-    {/*let category = item.volumeInfo.categories[0];*/}
+    let publisher = item.volumeInfo.publisher;
+    let pageCount = item.volumeInfo.pageCount;
+    let category = item.volumeInfo.categories.join(", ");
+    let rating = item.volumeInfo.averageRating;
+    let format = item.saleInfo.isEbook;
+    let price = item.saleInfo.listPrice["amount"];
+    let currency = item.saleInfo.listPrice["currencyCode"];
+    let buyLink = item.saleInfo.buyLink;
 
     console.log(item);
 
@@ -34,7 +41,7 @@ const AuthorBook = () => {
                                       sm:flex-row sm:items-start sm:justify-around">
                         <div className="">
                             <p className="bg-green-400 rounded-sm mb-1 text-center">
-
+                               Rating: {rating}/5
                             </p>
                             <img className="" src={thumbnail} alt='book cover'/>
                         </div>
@@ -66,6 +73,14 @@ const AuthorBook = () => {
                                                    onClick={() => {setShowLinks(!showLinks)}}>
                                     <p>Details</p><FaAngleDown />
                                 </button>
+                                <ul className={`list-inside list-disc bg-slate-800 rounded-lg p-1 mt-1 ${showLinks ? 'block': 'hidden'}`}>
+                                    <li>Publisher: {publisher}</li>
+                                    <li>Category: {category}</li>
+                                    <li>Pages: {pageCount}</li>
+                                    <li>Format: {format ? "Ebook" : "Book"}</li>
+                                    <li>Price: {currency} {price}</li>
+                                    <li><a href={buyLink} target="_blank" rel="noopener noreferrer" className="font-bold">Buying link</a></li>
+                                </ul>
                             </div>
                         </div>
                     </article>
