@@ -1,4 +1,4 @@
-//This is for the searched books (Google Books API)
+//This is for the related author books (Google Books API)
 
 import { createSlice } from '@reduxjs/toolkit';
 

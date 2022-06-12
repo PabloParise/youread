@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Home from "./pages/home";
 import PopularBook from './pages/popularBook';
 import AuthorBook from './pages/authorBook';
+import SearchBook from './pages/searchBook';
 import ScrollToTop from "./components/scrollToTop";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/popular' element = {<Popular />} />
           <Route exact path='/popularbook/:id' element = {<PopularBook />} />
           <Route exact path='/authorbook/:id' element = {<AuthorBook />} />
+          <Route exact path='/searchbook/:id' element = {<SearchBook />} />
         </Routes>
       </ScrollToTop>
       <Navbar />

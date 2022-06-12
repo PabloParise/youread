@@ -7,11 +7,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import popBookDataReducer from './features/popBookData';
 import authorBookDataReducer from './features/authorBookData';
+import searchDataReducer from './features/searchData';
 
 const store = configureStore({
   reducer: {
     popBookData: popBookDataReducer,
     authorBookData: authorBookDataReducer,
+    searchData: searchDataReducer,
   },
 });
 
