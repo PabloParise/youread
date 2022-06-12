@@ -1,15 +1,35 @@
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Popular from './pages/popular';
+import ScrollToTop from "./components/scrollToTop";
+import Header from './components/header';
 import Navbar from "./components/navbar";
 import Home from "./pages/home";
+import Popular from './pages/popular';
 import PopularBook from './pages/popularBook';
 import AuthorBook from './pages/authorBook';
 import SearchBook from './pages/searchBook';
-import ScrollToTop from "./components/scrollToTop";
+import { useState } from 'react';
 
 function App() {
+
+  const [navbarShown, setNavbarShown] = useState(false);
+
+  const handleScroll = navbarShown => {
+    if (window.pageYOffset >= 112) {
+      setNavbarShown(true);
+    } else if (navbarShown === true && window.pageYOffset < 112) {
+      setNavbarShown(false);
+    }
+};
+
+React.useEffect(() => {
+    window.onscroll = () => handleScroll(navbarShown);
+  }, [navbarShown]);
+
   return (
     <Router>
+      <Header />
+      <Navbar shown = {navbarShown}/>
       <ScrollToTop>
         <Routes>
           <Route exact path='/' element = {<Home />} />
@@ -19,7 +39,6 @@ function App() {
           <Route exact path='/searchbook/:id' element = {<SearchBook />} />
         </Routes>
       </ScrollToTop>
-      <Navbar />
     </Router>
   );
 }

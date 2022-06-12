@@ -14,7 +14,8 @@ const SearchCard = ({searchData}) => {
                             let id = item.id;
                             let smallThumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                             let thumbnail = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.thumbnail;
-                            if(thumbnail != undefined) {
+                            let description = item.volumeInfo.description;
+                            if((thumbnail && description) != undefined ) {
                             return (
                                 <div className=" relative group" key={id}>
                                     

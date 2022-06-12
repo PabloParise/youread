@@ -71,9 +71,9 @@ const Home = () => {
                     <h2 className="text-2xl text-center">Find your next favourite book</h2>
                 </section>
                 
-                <section className="grid grid-cols-1 md:grid-cols-2 pb-8">
-                    <article className="w-5/6 md:w-11/12 mx-auto border-2 rounded-lg p-4">
-                        <p className="text-lg md:text-xl pb-2">Check out the NYT Best Sellers</p>
+                <section className="grid grid-cols-1 pb-8 bg-slate-700">
+                    <article className="w-5/6 md:w-4/6 mx-auto p-4">
+                        <p className="text-lg md:text-xl font-bold pb-2">Check out the NYT Best Sellers</p>
                         <div className="flex flex-col bg-slate-600 rounded-lg">
                             {<Card popBookData={popBookData} listsNum={2} />}
                             <Link to='/popular' className="text-lg pl-1 text-center 
@@ -83,8 +83,8 @@ const Home = () => {
                             </Link>
                         </div>
                     </article>
-                    <article className="w-5/6 md:w-11/12 mx-auto border-2 rounded-lg p-4">
-                        <p className="text-lg md:text-xl pb-2">Get a recomendation based on a/an book/author you like</p>
+                    <article className="w-5/6 md:w-4/6 mx-auto p-4">
+                        <p className="text-lg md:text-xl font-bold pb-2">Get a recomendation based on a/an book/author you like</p>
                         <div className="flex flex-col bg-slate-600 pt-1 rounded-lg">
                             <label className="p-2 md:text-lg lg:text-xl" htmlFor="keyword">Titulo</label>
                             <input

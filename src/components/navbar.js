@@ -4,20 +4,17 @@ import { GoGear } from "react-icons/go";
 import { Link } from "react-router-dom";
 import useDarkMode from './hooks/useDarkMode';
 
-const NavBar = () => {
+const NavBar = ({shown}) => {
     return (
-        <div className="fixed top-0 h-14 w-full px-4 
-                        flex flex-row justify-between items-center
+        <div className={`fixed top-0 h-14 w-full px-4 z-20
+                        ${shown ? 'flex' : 'hidden'} flex-row justify-between items-center
                         md:justify-around md:px-0
-                        bg-slate-800 text-white shadow-lg">
-            {/*<ThemeIcon />*/}
+                        bg-slate-800 text-white shadow-lg`}>
             <Link to='/'><img src="/images/navLogo.png" className="h-12"/></Link>
             <div className="flex flex-row">
-            <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></Link>
-            <Link to='/popular' className="px-1 md:px-4"><NavBarIcon icon={<FaFireAlt size='20'/>} text={"Popular"} /></Link>
-            <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></Link>
-            <NavBarIcon icon={<GoGear size='22'/>} text={"Settings"} className="px-1 md:px-4"/>
-
+              <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></Link>
+              <Link to='/popular' className="px-1 md:px-4"><NavBarIcon icon={<FaFireAlt size='20'/>} text={"Popular"} /></Link>
+              <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></Link>
             </div>
         </div>
     );
