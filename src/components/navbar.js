@@ -7,8 +7,8 @@ import useDarkMode from './hooks/useDarkMode';
 const NavBar = ({shown}) => {
     return (
         <div className={`fixed top-0 h-14 w-full px-4 z-20
-                        ${shown ? 'flex' : 'hidden'} flex-row justify-between items-center
-                        md:justify-around md:px-0
+                        ${shown ? 'scale-y-100' : 'scale-y-0'} flex flex-row justify-between items-center
+                        md:justify-around md:px-0 transition-all duration-100 origin-top ease-out
                         bg-slate-800 text-white shadow-lg`}>
             <Link to='/'><img src="/images/navLogo.png" className="h-12"/></Link>
             <div className="flex flex-row">

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ScrollToTop from "./components/scrollToTop";
 import Header from './components/header';
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
 import Home from "./pages/home";
 import Popular from './pages/popular';
 import PopularBook from './pages/popularBook';
@@ -39,6 +40,7 @@ React.useEffect(() => {
           <Route exact path='/searchbook/:id' element = {<SearchBook />} />
         </Routes>
       </ScrollToTop>
+      <Footer />
     </Router>
   );
 }
