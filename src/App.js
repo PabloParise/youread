@@ -6,6 +6,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./pages/home";
 import Popular from './pages/popular';
+import Search from './pages/search';
 import PopularBook from './pages/popularBook';
 import AuthorBook from './pages/authorBook';
 import SearchBook from './pages/searchBook';
@@ -35,6 +36,7 @@ React.useEffect(() => {
         <Routes>
           <Route exact path='/' element = {<Home />} />
           <Route exact path='/popular' element = {<Popular />} />
+          <Route exact path='/search' element = {<Search />} />
           <Route exact path='/popularbook/:id' element = {<PopularBook />} />
           <Route exact path='/authorbook/:id' element = {<AuthorBook />} />
           <Route exact path='/searchbook/:id' element = {<SearchBook />} />
