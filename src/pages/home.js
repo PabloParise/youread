@@ -120,9 +120,6 @@ const Home = () => {
                                 />
                                 <Link to={`/search`} onClick={searchBooks} className="bg-slate-900 p-2 rounded-b-lg sm:hover:bg-slate-400">Search</Link>
                             </div>
-                            <div className="mt-8">
-                                {<SearchCard searchData = {searchData} />}
-                            </div>
                         </div>
                     </article>
                 </section>

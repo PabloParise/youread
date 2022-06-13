@@ -53,7 +53,7 @@ const Books = () => {
 
     return (
         <main>
-            <article className="w-full bg-slate-700 py-10">
+            <article className="w-full bg-slate-700 py-10 text-white">
                         <div className="w-5/6 md:w-4/6 mx-auto ">
                             <p className="text-lg md:text-xl font-bold pb-4">Search something you like</p>
                             <div className="flex flex-col bg-slate-600 pt-1 rounded-lg">
