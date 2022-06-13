@@ -14,7 +14,7 @@ const NavBar = ({shown}) => {
             <div className="flex flex-row">
               <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></Link>
               <Link to='/popular' className="px-1 md:px-4"><NavBarIcon icon={<FaFireAlt size='20'/>} text={"Popular"} /></Link>
-              <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></Link>
+              <Link to='/search' className="px-1 md:px-4"><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></Link>
             </div>
         </div>
     );
