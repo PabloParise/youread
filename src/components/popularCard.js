@@ -12,11 +12,11 @@ const Card = ({popBookData, listsNum}) => {
                     books, 
                 } = list;
                 return (
-                    <article className="flex flex-col" key={list_id}>
-                        <h2 className="p-2 md:text-lg lg:text-xl">{list_name}</h2>
+                    <article className="flex flex-col mb-4" key={list_id}>
+                        <h2 className="p-2 bg-blue-600 md:text-lg lg:text-xl">{list_name}</h2>
                         <div className="overflow-x-auto scrollbar 
                                      scrollbar-thumb-green-400 
-                                     scrollbar-track-slate-900">
+                                     scrollbar-track-blue-900">
                             <div className="flex w-max mb-2" >
                                 {books.map((item) => {
                                     const {

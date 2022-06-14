@@ -8,7 +8,7 @@ const AuthorCard = ({authorBookData}) => {
             <article className="flex ">
                 <div className="overflow-x-auto scrollbar 
                                 scrollbar-thumb-green-400 
-                                scrollbar-track-slate-900">
+                                scrollbar-track-blue-900">
                     <div className="flex w-max mb-2" >
                         {authorBookData.map((item) => {
                             let id = item.id;

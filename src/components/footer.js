@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <>
-        <footer className=" h-44 flex items-center justify-center bg-slate-900 text-white">
+        <footer className=" h-48 flex items-center justify-center bg-slate-900 text-white">
             <div className="flex flex-col items-center justify-around sm:flex-row w-5/6 border-2 rounded-md p-4 sm:p-8 lg:text-xl max-w-6xl">
                 <p>YOUREAD © 2022</p>
                 <div className="flex items-center pt-4 sm:pt-0">

@@ -63,40 +63,40 @@ const Home = () => {
     };
 
     return (
-            <main className="min-h-screen min-w-screen pt-14
-                           bg-slate-900  text-white
-                           ">
-                <section className="relative pb-44">
+            <main className="min-h-screen min-w-screen
+                          bg-slate-900  text-white
+                            ">
+                <section className="relative pt-6 pb-32 md:pt-12 md:pb-38 bg-blue-900">
                     <h1 className="text-[80px] text-center">YOU<strong>READ</strong></h1>
                     <h2 className="text-2xl text-center">Find your next favourite book</h2>
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
-                        <svg className="relative block h-[67px] w-full" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" className="fill-slate-600"></path>
+                    <div className="absolute bottom-0 left-0 h-[80px] w-full overflow-hidden leading-[0] rotate-180">
+                        <svg className="relative block h-full w-full" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                            <path d="M1200,0H0V120H281.94C572.9,116.24,602.45,3.86,602.45,3.86h0S632,116.24,923,120h277Z" className="fill-slate-900"></path>
                         </svg>
                     </div>
                 </section>
                 
                 <section className="grid grid-cols-1 pb-8 ">
-                    <article className="w-full bg-slate-600 py-10">
+                    <article className="w-full bg-slate-900 py-10">
                         <div className="w-5/6 md:w-4/6 mx-auto ">
                             <p className="text-lg md:text-xl font-bold pb-4">Check out the NYT Best Sellers</p>
-                            <div className="flex flex-col bg-slate-500 rounded-lg">
+                            <div className="flex flex-col bg-blue-500 rounded-lg">
                                 {<Card popBookData={popBookData} listsNum={2} />}
-                                <Link to='/popular' className="text-lg p-4 text-center rounded-b-lg
-                                                            font-bold bg-slate-400 w-full md:text-xl
-                                                             md:hover:bg-slate-200 md:hover:text-black">
+                                <Link to='/popular' className="text-lg p-2 text-center rounded-b-lg
+                                                            font-bold bg-blue-400 w-full md:text-xl
+                                                             md:hover:bg-blue-200 md:hover:text-black">
                                     View all
                                 </Link>
                             </div>
                         </div>
                     </article>
-                    <article className="w-full bg-slate-700 py-10">
+                    <article className="w-full bg-blue-900 py-10">
                         <div className="w-5/6 md:w-4/6 mx-auto ">
                             <p className="text-lg md:text-xl font-bold pb-4">Search something you like</p>
-                            <div className="flex flex-col bg-slate-600 pt-1 rounded-lg">
+                            <div className="flex flex-col bg-blue-600 pt-1 rounded-lg">
                                 <label className="p-2 md:text-lg lg:text-xl" htmlFor="keyword">Title</label>
                                 <input
-                                    className="bg-slate-800 p-1" 
+                                    className="bg-blue-800 p-1" 
                                     type="text" id="title" value={title}
                                     placeholder="e.g.: The Aleph"
                                     onChange={e=>setTitle(e.target.value)}
@@ -104,7 +104,7 @@ const Home = () => {
                                 />
                                 <label className="p-2 md:text-lg lg:text-xl" htmlFor="author">Author</label>
                                 <input 
-                                    className="bg-slate-800 p-1"
+                                    className="bg-blue-800 p-1"
                                     type="text" id="author" value={author}
                                     placeholder="e.g.: Jorge Luis Borges"
                                     onChange={e=>setAuthor(e.target.value)}
@@ -112,13 +112,15 @@ const Home = () => {
                                 />
                                 <label className="p-2 md:text-lg lg:text-xl" htmlFor="subject">Category</label>
                                 <input 
-                                    className="bg-slate-800 p-1"
+                                    className="bg-blue-800 p-1"
                                     type="text" id="subject" value={subject}
                                     placeholder="e.g.: Fiction" 
                                     onChange={e=>setSubject(e.target.value)}
                                     onKeyDown={enterSearch} 
                                 />
-                                <Link to={`/search`} onClick={searchBooks} className="bg-slate-900 p-2 rounded-b-lg sm:hover:bg-slate-400">Search</Link>
+                                <Link to={`/search`} onClick={searchBooks} className="text-lg p-2 text-center rounded-b-lg
+                                                            font-bold bg-blue-400 w-full md:text-xl
+                                                             md:hover:bg-blue-200 md:hover:text-black">Search</Link>
                             </div>
                         </div>
                     </article>

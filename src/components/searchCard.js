@@ -6,7 +6,7 @@ const SearchCard = ({searchData}) => {
     return (
         <>
             <article>
-                    <div className="flex flex-wrap justify-center mb-2" >
+                    <div className="flex flex-wrap justify-center mb-2 py-8 border-2 rounded-lg" >
                         {(() => {
                             if(searchData !==  undefined) {
                                 return (

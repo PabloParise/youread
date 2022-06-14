@@ -9,7 +9,7 @@ const NavBar = ({shown}) => {
         <div className={`fixed top-0 h-14 w-full px-4 z-20
                         ${shown ? 'scale-y-100' : 'scale-y-0'} flex flex-row justify-between items-center
                         md:justify-around md:px-0 transition-all duration-100 origin-top ease-out
-                        bg-slate-800 text-white shadow-lg`}>
+                        bg-blue-800 text-white shadow-lg`}>
             <Link to='/'><img src="/images/navLogo.png" className="h-12"/></Link>
             <div className="flex flex-row">
               <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></Link>

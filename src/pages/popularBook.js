@@ -46,7 +46,7 @@ const PopularBook = () => {
     return (
             <main className="flex flex-col items-center
                              min-h-screen min-w-screen
-                           bg-slate-900  text-white
+                           bg-blue-900  text-white
                              ">
                     <article className="flex flex-col items-center mt-20 mx-2 mb-6 p-4 h-fit
                                      bg-slate-900 border-2 rounded-lg w-5/6 max-w-5xl
