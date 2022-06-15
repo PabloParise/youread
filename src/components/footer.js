@@ -9,7 +9,7 @@ const Footer = () => {
                 <p>YOUREAD © 2022</p>
                 <div className="flex items-center pt-4 sm:pt-0">
                     <p className="mr-4">Developed by</p>
-                    <a href="https://www.linkedin.com/in/pabloparise/" target="_blank" rel="noopener noreferrer"><img src="./images/pplogo.png" alt="PPLogo" className="h-14" /></a>
+                    <a href="https://www.linkedin.com/in/pabloparise/" target="_blank" rel="noopener noreferrer"><img src="/images/pplogo.png" alt="PPLogo" className="h-14" /></a>
                 </div>
             </div>
         </footer>
