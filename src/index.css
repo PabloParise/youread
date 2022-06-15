@@ -6,10 +6,8 @@
         @apply 
             relative flex items-center justify-center
             h-12 w-12 
-            md:hover:bg-blue-700
-            rounded-3xl hover:rounded-xl
-            transition-all duration-100 ease-linear
-            cursor-pointer;
+            md:hover:text-green-400
+            transition-all duration-100 ease-linear;
     }
     .navbar-tooltip {
         @apply 

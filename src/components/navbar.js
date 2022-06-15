@@ -1,7 +1,7 @@
 import React from "react";
 import { FaHome, FaFireAlt, FaSearch, FaBars, FaMoon, FaSun } from "react-icons/fa";
 import { GoGear } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useDarkMode from './hooks/useDarkMode';
 
 const NavBar = ({shown}) => {
@@ -12,9 +12,18 @@ const NavBar = ({shown}) => {
                         bg-blue-800 text-white shadow-lg`}>
             <Link to='/'><img src="/images/navLogo.png" className="h-12"/></Link>
             <div className="flex flex-row">
-              <Link to='/' className="px-1 md:px-4"><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></Link>
-              <Link to='/popular' className="px-1 md:px-4"><NavBarIcon icon={<FaFireAlt size='20'/>} text={"Popular"} /></Link>
-              <Link to='/search' className="px-1 md:px-4"><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></Link>
+              <NavLink to='/' 
+                className={({ isActive }) =>
+                  isActive ? 'px-1 md:px-4 text-green-400' : 'px-1 md:px-4'}
+              ><NavBarIcon icon={<FaHome size='20'/>} text={"Home"} /></NavLink>
+              <NavLink to='/popular' 
+                className={({ isActive }) =>
+                  isActive ? 'px-1 md:px-4 text-green-400' : 'px-1 md:px-4'}
+              ><NavBarIcon icon={<FaFireAlt size='20'/>} text={"Popular"} /></NavLink>
+              <NavLink to='/search' 
+                className={({ isActive }) =>
+                  isActive ? 'px-1 md:px-4 text-green-400' : 'px-1 md:px-4'}
+              ><NavBarIcon icon={<FaSearch size='20'/>} text={"Search"} /></NavLink>
             </div>
         </div>
     );
